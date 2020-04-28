@@ -36,9 +36,6 @@ func TryAndUnMarshalStandard(method string, url string, postData proto.Message, 
 	//dataForPost := jsp.Marshal()
 	for tryTime > 0 {
 		bf := bytes.NewBufferString(str)
-		if len(str) < 1 {
-			bf = nil
-		}
 		req, err := http.NewRequest(method, url, bf)
 		if err != nil {
 			tryTime--
