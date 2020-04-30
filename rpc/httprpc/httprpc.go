@@ -55,6 +55,7 @@ func TryAndUnMarshalStandard(method string, url string, postData proto.Message, 
 					time.Sleep(time.Second * 1)
 				}
 			} else {
+				defer resp.Body.Close()
 				if resp.StatusCode >= http.StatusOK && resp.StatusCode < http.StatusMultipleChoices {
 					// We got normal entity...
 					if recvData != nil {
